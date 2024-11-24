@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Resume-Builder</title>
+    <!--Bootstrap Cdn-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+    <!--Cloudflare pdf convertor-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.debug.js"></script>
+
+    <!--Scripting Section-->
+    <script>
+        function generatePDF() {
+            var doc = new jsPDF();
+            doc.fromHTML(document.getElementById("printJS-form"), // page element which you want to print as PDF
+                15,
+                15,
+                {
+                    'width': 180,
+                    'height': 200
+                },
+                function (a) {
+                    doc.save("Resume.pdf");
+                });
+        }
+        function getname() {
+            var n = document.getElementById("name");
+            var x = document.getElementById('pn');
+            var y = document.getElementById("pnn");
+            var z = document.getElementById("sn");
+            x.innerHTML = n.value;
+            y.innerHTML = n.value;
+            z.innerHTML = n.value;
+            const d = new Date();
+            document.getElementById("date").innerHTML = d.toDateString();
+        }
+        function getdept() {
+            var d = document.getElementById("dept");
+            var x = document.getElementById('pd');
+            x.innerHTML = d.value;
+            var d = document.getElementById("dept");
+            var x = document.getElementById('dd');
+            x.innerHTML = d.value;
+        }
+
+        function getcity() {
+            var c = document.getElementById("city");
+            var x = document.getElementById('pc');
+            x.innerHTML = c.value;
+            var c = document.getElementById("city");
+            var x = document.getElementById('cc');
+            x.innerHTML = c.value;
+
+        }
+        function getdob() {
+            var b = document.getElementById("dob");
+            var x = document.getElementById("pb");
+            x.innerHTML = b.value;
+        }
+        function getemail() {
+            var e = document.getElementById("email");
+            var x = document.getElementById("pe");
+            x.innerHTML = e.value;
+        }
+        function getnum() {
+            var p = document.getElementById("num");
+            var x = document.getElementById("pp");
+            x.innerHTML = p.value;
+        }
+        function get10() {
+            var a = document.getElementById("sslc");
+            var b = document.getElementById("scl");
+            b.innerHTML = a.value;
+        }
+        function getyop() {
+            var a = document.getElementById("year");
+            var b = document.getElementById("yop");
+            b.innerHTML = a.value;
+        }
+        function getpercent() {
+            var a = document.getElementById("percent");
+            var b = document.getElementById("p");
+            b.innerHTML = a.value;
+        }
+
+        function get12() {
+            var a = document.getElementById('hsc');
+            var b = document.getElementById('scl1');
+            b.innerHTML = a.value;
+        }
+        function getyop1() {
+            var a = document.getElementById("year1");
+            var b = document.getElementById("yop1");
+            b.innerHTML = a.value;
+        }
+        function getpercent1() {
+            var a = document.getElementById("percent1");
+            var b = document.getElementById("p1");
+            b.innerHTML = a.value;
+        }
+
+        function getdeg() {
+            var d = document.getElementById("deg");
+            var x = document.getElementById('scl2');
+            x.innerHTML = d.value;
+        }
+        function getyop2() {
+            var a = document.getElementById("year2");
+            var b = document.getElementById("yop2");
+            b.innerHTML = a.value;
+        }
+        function getpercent2() {
+            var a = document.getElementById("percent2");
+            var b = document.getElementById("p2");
+            b.innerHTML = a.value;
+        }
+
+        function gettech() {
+            var a = document.getElementById("ts");
+            var b = document.getElementById("tech");
+            b.innerHTML = a.value;
+        }
+        function getsoft() {
+            var a = document.getElementById("ss");
+            var b = document.getElementById("soft");
+            b.innerHTML = a.value;
+        }
+        function gettitle() {
+            var a = document.getElementById("pi");
+            var b = document.getElementById("title");
+            b.innerHTML = a.value;
+        }
+        function getdef() {
+            var a = document.getElementById("pdef");
+            var b = document.getElementById("desc");
+            b.innerHTML = a.value;
+        }
+        function getcert() {
+            var a = document.getElementById("cert");
+            var b = document.getElementById("c1");
+            b.innerHTML = a.value;
+        }
+        function getcert1() {
+            var a = document.getElementById("cert1");
+            var b = document.getElementById("c2");
+            b.innerHTML = a.value;
+        }
+
+    </script>
+    <style>
+        body {
+            background-color: rgb(160, 217, 240);
+        }
+
+        .card {
+            border: 2px solid #222;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .part1 {
+            background-color: #222;
+            color: azure;
+            font-weight: bold;
+            margin-bottom: 5%;
+        }
+
+        .part2 {
+            background-color: #fff;
+            color: #222;
+            font-weight: normal;
+        }
+
+        button {
+            margin-bottom: 5%;
+        }
+
+        h4 {
+            color: darkblue;
+            text-decoration: underline;
+            font-weight: bold;
+        }
+
+        tbody {
+            font-weight: bold;
+        }
+
+        td {
+            border: 4px solid black;
+            padding: 5px;
+        }
+
+        #sign {
+            margin-left: 65%;
+            margin-right: 8%;
+        }
+
+        #aoi {
+            text-decoration: solid;
+        }
+
+        span {
+            color: #222;
+        }
+
+        #pn {
+            margin-top: 2px;
+            color: goldenrod;
+            margin-left: 27%;
+        }
+
+        footer {
+            background-image: linear-gradient(to right, #434343 0%, black 100%);
+            color: white;
+            padding: 20px;
+            bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <h1 class="alert text-center">RESUME BUILDER</h1>
+        <div class="card-deck">
+            <!--Card 1-->
+            <div class="container card part1">
+                <h1 class="text-center">Enter the details</h1>
+                <div class="container ">
+                    <label>Enter Name:</label><br>
+                    <input id='name' onkeyup="getname();" class="form-control col-md-5" /><br>
+
+                    <label>Enter Degree:</label><br>
+                    <input id='dept' onkeyup="getdept();" class="form-control col-md-4" /><br>
+
+                    <label> Enter Date of birth:</label><br>
+                    <input id='dob' onkeyup="getdob();" class="form-control col-md-3" /><br>
+
+                    <label> Enter E-mail:</label><br>
+                    <input type="email" id='email' onkeyup="getemail();" class="form-control col-md-5" /><br>
+
+                    <label> Enter Phone number:</label><br>
+                    <input type="number" id='num' onkeyup="getnum();" class="form-control col-md-4" /><br>
+
+                    <label> Enter City:</label><br>
+                    <input id='city' onkeyup="getcity();" class="form-control col-md-3" /><br>
+
+                    <label> Enter SSLC Details:</label><br>
+                    <input id='sslc' onkeyup="get10();" placeholder="Enter Hsc School name:"
+                        class="form-control col-md-6" /><br>
+                    <input id='year' onkeyup="getyop();" placeholder="Enter Year of passing:"
+                        class="form-control col-md-4" /><br>
+                    <input id="percent" onkeyup="getpercent();" placeholder="Percentage"
+                        class="form-control col-md-2"><br>
+
+                    <label> Enter Hsc Details:</label><br>
+                    <input id='hsc' onkeyup="get12();" placeholder="Enter Hsc School name:"
+                        class="form-control col-md-6" /><br>
+                    <input id='year1' onkeyup="getyop1();" placeholder="Enter Year of passing:"
+                        class="form-control col-md-4" /><br>
+                    <input id="percent1" onkeyup="getpercent1();" placeholder="Percentage"
+                        class="form-control col-md-2"><br>
+
+                    <label> Enter Degree Details:</label><br>
+                    <input id='deg' onkeyup="getdeg();" placeholder="Enter College name:"
+                        class="form-control col-md-6" /><br>
+                    <input id='year2' onkeyup="getyop2();" placeholder="Enter Year of passing:"
+                        class="form-control col-md-4" /><br>
+                    <input id="percent2" onkeyup="getpercent2();" placeholder="Percentage"
+                        class="form-control col-md-2"><br>
+
+                    <label>Enter Your Skills:</label><br>
+                    <input type="text" id="ts" onkeyup="gettech();" class="form-control col-md-6"
+                        placeholder="Technical Skills separated by commas(,)" /><br>
+                    <input type="text" id="ss" onkeyup="getsoft();" class="form-control col-md-6"
+                        placeholder="Soft Skills separated by commas(,)" /><br>
+
+                    <label>Enter Your Projects:</label><br>
+                    <label>Title:</label>
+                    <input type="text" id="pi" onkeyup="gettitle();" class="form-control col-md-4"> <br>
+                    <label>Describe about your project</label><br>
+                    <textarea id="pdef" onkeyup="getdef();" class="form-control col-md-8" rows="3"></textarea><br>
+
+                    <label>Enter Certifications:</label><br>
+                    <input type="text" id="cert" onkeyup="getcert();" class="form-control col-md-5"
+                        placeholder="Certification Name"> <br>
+
+                    <br>
+                    <button type="button" onclick="generatePDF();" class="btn btn-outline-success">Download
+                        Resume</button>
+                </div>
+            </div>
+            <!--Card1 end-->
+
+            <!--Card2-->
+            <div class="container card part2" id="printJS-form">
+                <h1 id="pn"></h1>
+                <hr>
+                <form>
+                    <h4>PERSONAL DETAILS:</h4><br>
+                    <h6> NAME : <span id='pnn'> </span></h6>
+                    <h6> DEGREE : <span id='pd'> </span></h6>
+                    <h6> DOB : <span id='pb'> </span></h6>
+                    <h6> E-MAIL : <span id='pe'> </span></h6>
+                    <h6> PHONE NUMBER : <span id='pp'> </span></h6>
+                    <h6> CITY : <span id='pc'> </span></h6><br>
+
+                    <h4>OBJECTIVE :</h4><br>
+                    <h6>To succeed in my career through a continuous learning process and explore my vision towards
+                        development of the organization.</h6><br>
+
+                    <h4>ACADEMIC QUALIFICATIONS :</h4><br>
+                    <table class="table table-bordered ">
+                        <thead class="table-secondary">
+                            <tr>
+                                <th scope="col">Class</th>
+                                <th scope="col">Institution</th>
+                                <th scope="col">Passout Year</th>
+                                <th scope="col">( % )</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td id="10">SSLC</td>
+                                <td id="scl"></td>
+                                <td id="yop"></td>
+                                <td id="p"></td>
+                            </tr>
+                            <tr>
+                                <td id="12">HSC</td>
+                                <td id="scl1"></td>
+                                <td id="yop1"></td>
+                                <td id="p1"></td>
+                            </tr>
+                            <tr>
+                                <td id="dd"></td>
+                                <td id="scl2"></td>
+                                <td id="yop2"></td>
+                                <td id="p2"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+                    <h4>CERTIFICATES: <span id="c1"></span></h4><br>
+                    <h6>* Course are completed </h6><br>
+                    <h6><span id="c2"></span></h6><br>
+
+                    <h4>SKILLS:</h4>
+                    <h6><u>Technical Skills</u> : <span id="tech"></span></h6><br>
+                    <h6><u>Soft Skills</u> : <span id="soft"></span></h6><br>
+
+
+                    <div>
+                        <h4>PROJECT:</h4><br>
+                        <h6><u>Project Title</u>:</h6>
+                        <h6 id="title"></h6><br>
+                        <h6><u>Project Description</u>:</h6>
+                        <h6 id="desc"></h6><br>
+                    </div>
+
+
+                    <h4>DECLARATION:</h4><br>
+                    <h6>I here by declare that the above given information are true to the best of my knowledge and
+                        belief.</h6>
+                    <br><br><br>
+
+                    <h4>Place: <span id="cc"></span></h4>
+                    <h4>Date: <span id="date"></span></h4><br>
+                    <h5 id="sign">( <span id="sn"></span> )</h5>
+                </form>
+            </div>
+            <!--Card2 end-->
+
+        </div>
+
+    </div>
+
+    <footer class="footer text-center mt-5">
+
+        <h5>Designed and Developed By</h5>
+        <h6>Muthumari S</h6>
+
+    </footer>
+
+</body>
+
+</html>
